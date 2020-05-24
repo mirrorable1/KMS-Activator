@@ -5,37 +5,48 @@ title KMS Activator
 cls
 COLOR A
 
-echo Press A to Activate Windows 7 Pro
+echo Type A to Activate Windows 7 Pro
 echo ----------------------------------------------------------------------------------
-echo Press B to Activate Windows 7 Enterprise
+echo Type B to Activate Windows 7 Enterprise
 echo ----------------------------------------------------------------------------------
 echo ----------------------------------------------------------------------------------
 echo ----------------------------------------------------------------------------------
-echo Press 1 to Activate Windows 10 Home
+echo Type 1 to Activate Windows 10 Home
 echo ----------------------------------------------------------------------------------
 echo Type 2 to Activate Windows 10 Home N
 echo ----------------------------------------------------------------------------------
 echo Type 3 to Activate Windows 10 Home Single Language
 echo ----------------------------------------------------------------------------------
-echo Press 4 to Activate Windows 10 Pro
+echo Type 4 to Activate Windows 10 Pro
 echo ----------------------------------------------------------------------------------
-echo press 5 to Activate Windows 10 Enterprise
-echo ----------------------------------------------------------------------------------
-echo ----------------------------------------------------------------------------------
-echo ----------------------------------------------------------------------------------
-echo Press 6 To Activate Office 2019 Professional Plus
-echo ----------------------------------------------------------------------------------
-echo Press 7 To Activate Office 2013 Professional Plus
+echo Type 5 to Activate Windows 10 Enterprise
 echo ----------------------------------------------------------------------------------
 echo ----------------------------------------------------------------------------------
-echo Press 8 To Convert Office Volume License To KMS For Office Professional 2019 32bit
 echo ----------------------------------------------------------------------------------
-echo Press 9 To Convert Office Volume License To KMS For Office Professional 2019 64bit
+echo Type 6 To Activate Office 2019 Professional Plus
+echo ----------------------------------------------------------------------------------
+echo Type 6B To Activate Office 2019 Professional Plus 64 Bit
+echo ----------------------------------------------------------------------------------
+echo Type 7 To Activate Office 2013 Professional Plus 32 Bit
+echo ----------------------------------------------------------------------------------
+echo Type 7B To Activate Office 2013 Professional Plus 64 Bit
 echo ----------------------------------------------------------------------------------
 echo ----------------------------------------------------------------------------------
-echo Press 10 To Check Expriation Date Of KMS Activation
+echo Type 8 To Convert Office Volume License To KMS For Office Professional 2019 32bit
 echo ----------------------------------------------------------------------------------
-echo Press 11 To Uninstall KMS Key
+echo Type 9 To Convert Office Volume License To KMS For Office Professional 2019 64bit
+echo ----------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------
+echo Type 10 To Check Expriation Date Of KMS Activation
+echo ----------------------------------------------------------------------------------
+echo Type 11 To Uninstall KMS Key
+echo ----------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------
+echo Type 12 To Disable Sign-In Feature With Office 2013
+echo ----------------------------------------------------------------------------------
+echo Type 13 To Disable Sign-In Feature With Office 2019
 
 
 
@@ -48,11 +59,16 @@ if %car% == 3 goto win1B
 if %car% == 4 goto winP
 if %car% == 5 goto WinE
 if %car% == 6 goto O19
+if %car% == 6B goto O19_64
 if %car% == 7 goto 013
+if %car% == 7B goto 013_64
 if %car% == 8 goto Convert
 if %car% == 9 goto Convert64
 if %car% == 10 goto Expire
 if %car% == 11 goto REMKey
+if %car% == 12 goto SignIn13
+if %car% == 13 goto SignIn19
+
 
 
 :win7P
@@ -65,7 +81,6 @@ pause
 goto start
 
 
-
 :win7E
 set /p KMS=Type KMS Server You Want To Use:
 echo Activating Windows 7 Enterprise
@@ -74,7 +89,6 @@ slmgr.vbs /skms %KMS%
 slmgr.vbs /ato
 pause
 goto start
-
 
 
 
@@ -140,6 +154,23 @@ pause
 goto start
 
 
+:O19_64
+set /p KMS=Type KMS Server You Want To Use:
+echo Activating Office 2019 64 bit
+CD %ProgramFiles%\Microsoft Office\Office16
+cscript ospp.vbs /inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
+cscript ospp.vbs /sethst:%KMS%
+cscript ospp.vbs /act
+pause
+goto start
+
+:SignIn19
+echo Disabling Sign In Feature For Office 2019
+REG add HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\SignIn /v SignInOption /t REG_SZ /d 3 /f
+pause
+goto start
+
+
 :013
 set /p KMS=Type KMS Server You Want To Use:
 echo Activating Office 2013
@@ -149,6 +180,24 @@ cscript ospp.vbs /sethst:%KMS%
 cscript ospp.vbs /act
 pause
 goto start
+
+:013_64
+set /p KMS=Type KMS Server You Want To Use:
+echo Activating Office 2013 64 Bit
+CD %ProgramFiles%\Microsoft Office\Office15
+cscript ospp.vbs /inpkey:YC7DK-G2NP3-2QQC3-J6H88-GVGXT
+cscript ospp.vbs /sethst:%KMS%
+cscript ospp.vbs /act
+pause
+goto start
+
+
+:SignIn13
+echo Disabling Sign In Feature For Office 2013
+REG add HKEY_CURRENT_USER\Software\Microsoft\Office\15.0\Common\SignIn /v SignInOption /t REG_SZ /d 3 /f
+pause
+goto start
+
 
 :Expire
 echo Checking Expire Date
@@ -228,6 +277,7 @@ pause
 goto start
 
 
+
 :Convert64
 openfiles >nul 2>nul ||(
 echo CreateObject^("Shell.Application"^).ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
@@ -289,3 +339,13 @@ echo Retail to Volume License conversion finished.
 echo.
 pause
 goto start
+
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,97 @@ title KMS Activator
 :start
 cls
 COLOR A
+echo ----------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------
+echo Type 1 to List Windows Activation Options
+echo ----------------------------------------------------------------------------------
+echo Type 2 to List Office Activation Options
+echo ----------------------------------------------------------------------------------
+echo Type 3 to Check Expriation Date Of KMS Activation
+echo ----------------------------------------------------------------------------------
+echo Type 4 to Uninstall KMS Key
+echo ----------------------------------------------------------------------------------
+echo Type 5 to Disable Sign-In Features Of Office
+echo ----------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------
+set /p car=
+if %car% == 1 goto winAct
+if %car% == 2 goto officeAct
+if %car% == 3 goto Expire
+if %car% == 4 goto REMKey
+if %car% == 5 goto officeSignIn
 
-echo Type A to Activate Windows 7 Pro
+
+
+
+:winAct
+cls
 echo ----------------------------------------------------------------------------------
-echo Type B to Activate Windows 7 Enterprise
 echo ----------------------------------------------------------------------------------
+echo Type 1 to List Windows 7 Versions
+echo ----------------------------------------------------------------------------------
+echo Type 2 to List Windows 10 Versions
+echo ----------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------
+set /p car=
+if %car% == 1 goto win7Ver
+if %car% == 2 goto win10Ver
+
+
+:officeAct
+cls
+echo ----------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------
+echo Type 1 to Convert Office Volume License To KMS For Office Professional (2019)
+echo ----------------------------------------------------------------------------------
+echo Type 2 to Activate Office (2019) Professional Plus
+echo ----------------------------------------------------------------------------------
+echo Type 3 to Convert Office Volume License To KMS For Office Professional (2016)
+echo ----------------------------------------------------------------------------------
+echo Type 4 to Activate Office (2016) Professional Plus
+echo ----------------------------------------------------------------------------------
+echo Type 5 to Activate Office (2013) Professional Plus
+echo ----------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------
+set /p car=
+if %car% == 1 goto Convert
+if %car% == 2 goto O19
+if %car% == 3 goto ConvertOffice2016
+if %car% == 4 goto 016
+if %car% == 5 goto 013
+
+:officeSignIn
+cls
+echo ----------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------
+echo Type 1 to Disable Sign-In Feature With Office (2019)
+echo ----------------------------------------------------------------------------------
+echo Type 2 to Disable Sign-In Feature With Office (2013)
+echo ----------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------
+set /p car=
+if %car% == 1 goto SignIn19
+if %car% == 2 goto SignIn13
+
+
+
+
+:win7Ver
+cls
+echo ----------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------
+echo Type 1 to Activate Windows 7 Pro
+echo ----------------------------------------------------------------------------------
+echo Type 2 to Activate Windows 7 Enterprise
+echo ----------------------------------------------------------------------------------
+echo ----------------------------------------------------------------------------------
+set /p car=
+if %car% == 1 goto win7P
+if %car% == 2 goto win7E
+
+
+:win10Ver
+cls
 echo ----------------------------------------------------------------------------------
 echo ----------------------------------------------------------------------------------
 echo Type 1 to Activate Windows 10 Home
@@ -22,52 +108,14 @@ echo ---------------------------------------------------------------------------
 echo Type 5 to Activate Windows 10 Enterprise
 echo ----------------------------------------------------------------------------------
 echo ----------------------------------------------------------------------------------
-echo ----------------------------------------------------------------------------------
-echo Type 6 To Activate Office 2019 Professional Plus
-echo ----------------------------------------------------------------------------------
-echo Type 6B To Activate Office 2019 Professional Plus 64 Bit
-echo ----------------------------------------------------------------------------------
-echo Type 7 To Activate Office 2013 Professional Plus 32 Bit
-echo ----------------------------------------------------------------------------------
-echo Type 7B To Activate Office 2013 Professional Plus 64 Bit
-echo ----------------------------------------------------------------------------------
-echo ----------------------------------------------------------------------------------
-echo Type 8 To Convert Office Volume License To KMS For Office Professional 2019 32bit
-echo ----------------------------------------------------------------------------------
-echo Type 9 To Convert Office Volume License To KMS For Office Professional 2019 64bit
-echo ----------------------------------------------------------------------------------
-echo ----------------------------------------------------------------------------------
-echo ----------------------------------------------------------------------------------
-echo Type 10 To Check Expriation Date Of KMS Activation
-echo ----------------------------------------------------------------------------------
-echo Type 11 To Uninstall KMS Key
-echo ----------------------------------------------------------------------------------
-echo ----------------------------------------------------------------------------------
-echo ----------------------------------------------------------------------------------
-echo Type 12 To Disable Sign-In Feature With Office 2013
-echo ----------------------------------------------------------------------------------
-echo Type 13 To Disable Sign-In Feature With Office 2019
-
-
-
 set /p car=
-if %car% == A goto win7P
-if %car% == B goto win7E
 if %car% == 1 goto winH
 if %car% == 2 goto win1A
 if %car% == 3 goto win1B
 if %car% == 4 goto winP
 if %car% == 5 goto WinE
-if %car% == 6 goto O19
-if %car% == 6B goto O19_64
-if %car% == 7 goto 013
-if %car% == 7B goto 013_64
-if %car% == 8 goto Convert
-if %car% == 9 goto Convert64
-if %car% == 10 goto Expire
-if %car% == 11 goto REMKey
-if %car% == 12 goto SignIn13
-if %car% == 13 goto SignIn19
+
+
 
 
 
@@ -154,16 +202,6 @@ pause
 goto start
 
 
-:O19_64
-set /p KMS=Type KMS Server You Want To Use:
-echo Activating Office 2019 64 bit
-CD %ProgramFiles%\Microsoft Office\Office16
-cscript ospp.vbs /inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
-cscript ospp.vbs /sethst:%KMS%
-cscript ospp.vbs /act
-pause
-goto start
-
 :SignIn19
 echo Disabling Sign In Feature For Office 2019
 REG add HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\SignIn /v SignInOption /t REG_SZ /d 3 /f
@@ -171,20 +209,22 @@ pause
 goto start
 
 
-:013
+:016
 set /p KMS=Type KMS Server You Want To Use:
-echo Activating Office 2013
+echo Activating Office 2016
 CD %ProgramFiles(x86)%\Microsoft Office\Office15
-cscript ospp.vbs /inpkey:YC7DK-G2NP3-2QQC3-J6H88-GVGXT
+cscript ospp.vbs /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
 cscript ospp.vbs /sethst:%KMS%
 cscript ospp.vbs /act
 pause
 goto start
 
-:013_64
+
+
+:013
 set /p KMS=Type KMS Server You Want To Use:
-echo Activating Office 2013 64 Bit
-CD %ProgramFiles%\Microsoft Office\Office15
+echo Activating Office 2013
+CD %ProgramFiles(x86)%\Microsoft Office\Office15
 cscript ospp.vbs /inpkey:YC7DK-G2NP3-2QQC3-J6H88-GVGXT
 cscript ospp.vbs /sethst:%KMS%
 cscript ospp.vbs /act
@@ -278,74 +318,11 @@ goto start
 
 
 
-:Convert64
-openfiles >nul 2>nul ||(
-echo CreateObject^("Shell.Application"^).ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
-"%temp%\getadmin.vbs" >nul 2>&1
-goto:eof
-)
-del /f /q "%temp%\getadmin.vbs" >nul 2>nul
-
-for /f "tokens=6 delims=[]. " %%G in ('ver') do set win=%%G
-
-setlocal
-
-pushd "%~dp0"
-
-SET OfficePath=%ProgramFiles%\Microsoft Office
-if not exist "%OfficePath%\root\Licenses16" SET OfficePath=%ProgramFiles(x86)%\Microsoft Office
-if not exist "%OfficePath%\root\Licenses16" (
-	echo Could not find the license files for Office 2019!
-	pause
-	goto :eof
-)
-
-echo Press Enter to start VL-Conversion...
-echo.
-pause
-echo.
-cd /D "%SystemRoot%\System32"
-
-if %win% GEQ 9200 (
-	cscript slmgr.vbs /ilc "%OfficePath%\root\Licenses16\ProPlus2019VL_KMS_Client_AE-ppd.xrm-ms"
-	cscript slmgr.vbs /ilc "%OfficePath%\root\Licenses16\ProPlus2019VL_KMS_Client_AE-ul.xrm-ms"
-	cscript slmgr.vbs /ilc "%OfficePath%\root\Licenses16\ProPlus2019VL_KMS_Client_AE-ul-oob.xrm-ms"
-
-
-	cscript slmgr.vbs /ilc "%OfficePath%\root\Licenses16\client-issuance-bridge-office.xrm-ms
-	cscript slmgr.vbs /ilc "%OfficePath%\root\Licenses16\client-issuance-root.xrm-ms
-	cscript slmgr.vbs /ilc "%OfficePath%\root\Licenses16\client-issuance-root-bridge-test.xrm-ms
-	cscript slmgr.vbs /ilc "%OfficePath%\root\Licenses16\client-issuance-stil.xrm-ms
-	cscript slmgr.vbs /ilc "%OfficePath%\root\Licenses16\client-issuance-ul.xrm-ms
-	cscript slmgr.vbs /ilc "%OfficePath%\root\Licenses16\client-issuance-ul-oob.xrm-ms
-	cscript slmgr.vbs /ilc "%OfficePath%\root\Licenses16\pkeyconfig-office.xrm-ms
-)
- if %win% LSS 9200 (
-	cscript "%OfficePath%\Office16\ospp.vbs" /inslic:"%OfficePath%\root\Licenses16\ProPlus2019VL_KMS_Client_AE-ppd.xrm-ms"
-	cscript "%OfficePath%\Office16\ospp.vbs" /inslic:"%OfficePath%\root\Licenses16\ProPlus2019VL_KMS_Client_AE-ul.xrm-ms"
-	cscript "%OfficePath%\Office16\ospp.vbs" /inslic:"%OfficePath%\root\Licenses16\ProPlus2019VL_KMS_Client_AE-ul-oob.xrm-ms"
-
-
-	cscript "%OfficePath%\Office16\ospp.vbs" /inslic:"%OfficePath%\root\Licenses16\client-issuance-bridge-office.xrm-ms
-	cscript "%OfficePath%\Office16\ospp.vbs" /inslic:"%OfficePath%\root\Licenses16\client-issuance-root.xrm-ms
-	cscript "%OfficePath%\Office16\ospp.vbs" /inslic:"%OfficePath%\root\Licenses16\client-issuance-root-bridge-test.xrm-ms
-	cscript "%OfficePath%\Office16\ospp.vbs" /inslic:"%OfficePath%\root\Licenses16\client-issuance-stil.xrm-ms
-	cscript "%OfficePath%\Office16\ospp.vbs" /inslic:"%OfficePath%\root\Licenses16\client-issuance-ul.xrm-ms
-	cscript "%OfficePath%\Office16\ospp.vbs" /inslic:"%OfficePath%\root\Licenses16\client-issuance-ul-oob.xrm-ms
-	cscript "%OfficePath%\Office16\ospp.vbs" /inslic:"%OfficePath%\root\Licenses16\pkeyconfig-office.xrm-ms
-)
+:ConvertOffice2016
+cd /d %ProgramFiles(x86)%\Microsoft Office\Office16
+for /f %x in ('dir /b ..\root\Licenses16\proplusvl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%x"
 echo.
 echo Retail to Volume License conversion finished.
 echo.
 pause
 goto start
-
-
-
-
-
-
-
-
-
-
